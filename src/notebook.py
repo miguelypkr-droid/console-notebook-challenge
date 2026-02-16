@@ -14,3 +14,5 @@ class Note:
         self.importance = importance
         creation_date = datetime.datetime.now()
         self.tags: list[str] = []
+
+    def add_tag(self, tag: str):
