@@ -16,3 +16,10 @@ class Note:
         self.tags: list[str] = []
 
     def add_tag(self, tag: str):
+        if tag not in self.tags: # Si tag no esta en tags
+            self.tags.append(tag) # Entonces esto permite para no agregar duplicados con el append
+
+    def __str__(self):
+        return f"Date: {self.creation_date}, {self.tittle} {self.text}"
+
+
