@@ -27,9 +27,23 @@ class Notebook:
     def __init__(self):
         self.notes: list[Note] = []
 
-    def _generate_code(self) -> int: # Esto significa que el codigo devuelve un numero entero con el -> str
-        existing_codes = {note.code for note in self.notes} # verificar el codigo de cada nota que esta en notas los cuales se guardan en existing_codes
-        code = 1 # Inicia con el codigo 1 al ser generado.
+    # Use chatgpt para comprender como hacer _generate_code
+
+    def _generate_code(self) -> int: # Esto significa que el codigo devuelve un numero entero con el -> int
+        existing_codes = {note.code for note in self.notes} # verificar el codigo de cada nota que esta en notas, los cuales se guardan en existing_codes
+        code = 1 # Inicia con el codigo 1
+        while code in existing_codes: # esto prueba los code que hay, si no existe para poder usarlo
+            code += 1 # Crear 1 code que no este en esa lista
+        return code
+
+    # El script anterior crea un identificador unico para cada note.
+
+    def add_note(self, title: str, text: str, importance: str):
+        code = self._generate_code() # llama el metodo anterior para conseguir un codigo unico
+        note = Note(code, title, text, importance) # note crea un Note con la informacion dentro del ()
+        self.notes.append(note) # Agrega la nueva nota en la lista notes
+        return code
 
 
-    def add_note(self, tittle: str, text: str, importance: str):
+
+
