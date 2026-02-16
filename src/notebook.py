@@ -44,6 +44,14 @@ class Notebook:
         self.notes.append(note) # Agrega la nueva nota en la lista notes
         return code
 
+    def delete_note(self, code: int): #################
+        self.notes = [note for note in self.notes if note.code != code]  ############
+
+    def important_notes(self) -> list[Note]: #######
+        return [note for note in self.notes if note.importance > 0]  ########
+
+
+
 
 
 
