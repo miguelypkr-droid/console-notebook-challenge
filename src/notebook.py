@@ -29,7 +29,7 @@ class Notebook:
 
     def _generate_code(self) -> int: # Esto significa que el codigo devuelve un numero entero con el -> str
         existing_codes = {note.code for note in self.notes} # verificar el codigo de cada nota que esta en notas los cuales se guardan en existing_codes
-        code = 1 # Inicia con el codigo 1 al ser generado
+        code = 1 # Inicia con el codigo 1 al ser generado.
 
 
     def add_note(self, tittle: str, text: str, importance: str):
